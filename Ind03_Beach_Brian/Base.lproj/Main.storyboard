@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--test-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController wantsFullScreenLayout="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="Ind03_Beach_Brian" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="E3H-IJ-Ztp"/>
+                    <navigationItem key="navigationItem" title="test" id="E3H-IJ-Ztp"/>
+                    <connections>
+                        <outlet property="titleBar" destination="E3H-IJ-Ztp" id="MzV-9c-NXH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -56,9 +59,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="9rd-ue-qri"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -67,10 +67,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Rwl-Om-JDQ"/>
+                    <connections>
+                        <outlet property="stateTable" destination="nhK-ii-0N9" id="sT0-rV-1S5"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="details" id="0Fu-2f-MoR"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fn7-Pg-GL0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1626.0869565217392" y="59.598214285714285"/>
+            <point key="canvasLocation" x="1633" y="60"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hIp-uC-XKh">

@@ -9,6 +9,10 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
+    
+    @IBOutlet weak var stateTable: UITableView!
+    
+    
     let tableData: [[(String, String)]] = [
     [
         (state: "Alabama", nickname: "YellowHammer State"),
@@ -98,6 +102,31 @@ class TableViewController: UITableViewController {
 
         return cell
     }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "details", sender: self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "details") {
+            let path = self.stateTable.indexPathForSelectedRow!
+            //print(path)
+            //print(path.row)
+            let tableViewDetail = segue.destination as? ViewController
+            
+            let selectedState = tableData[path[0]][path[1]]
+            
+            //print(selectedState.0)
+            
+            tableViewDetail?.message = selectedState.0
+            
+            
+        }
+    }
+    
+   
     
 
     /*
