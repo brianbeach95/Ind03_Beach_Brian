@@ -9,10 +9,10 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    
+    //used to obtain cell index data for segue
     @IBOutlet weak var stateTable: UITableView!
     
-    
+    //tuple used for table data
     let tableData: [[(String, String)]] = [
     [
         (state: "Alabama", nickname: "YellowHammer State"),
@@ -95,9 +95,13 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "My Table Cell", for: indexPath)
 
         // Configure the cell...
+        //sets cell data equal to the tuple made earler to state and then nickname as subtitle within cell
         let cellData: (state: String, nickname: String) = tableData[indexPath[0]][indexPath[1]]
         
+        //makes cell text equal to first index in cell data
         cell.textLabel?.text = cellData.state
+        
+        //sets subtitle text to nickname
         cell.detailTextLabel?.text = cellData.nickname
 
         return cell
@@ -105,21 +109,23 @@ class TableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //makes it so where it performs segue if identifier = details
         self.performSegue(withIdentifier: "details", sender: self)
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "details") {
+            //used to obtain indexed cell
             let path = self.stateTable.indexPathForSelectedRow!
-            //print(path)
-            //print(path.row)
+            
+            //used to send info via segue
             let tableViewDetail = segue.destination as? ViewController
             
+            //gets cell that was selected
             let selectedState = tableData[path[0]][path[1]]
             
-            //print(selectedState.0)
-            
+            //sends the state name to message variable in view controller
             tableViewDetail?.message = selectedState.0
             
             
