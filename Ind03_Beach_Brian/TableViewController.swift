@@ -87,6 +87,7 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        //used to make each array entry a cell
         return tableData[section].count
     }
 
