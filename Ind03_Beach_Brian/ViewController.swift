@@ -3,6 +3,7 @@
 //  Ind03_Beach_Brian
 //
 //  Created by Brian Beach on 3/13/22.
+//View Controller thats used after segue to show state info like flag/capital/area size once a cell is clicked in the table. 
 //
 
 import UIKit
